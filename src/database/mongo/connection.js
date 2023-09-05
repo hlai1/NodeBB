@@ -14,7 +14,6 @@ const winston = require("winston");
 const _ = require("lodash");
 const mongodb_1 = require("mongodb");
 function getConnectionString(mongo) {
-    // mongo = mongo || nconf.get('mongo');
     let usernamePassword = '';
     const uri = mongo.uri || '';
     if (mongo.username && mongo.password) {
@@ -45,7 +44,6 @@ function getConnectionString(mongo) {
 }
 exports.default = getConnectionString;
 function getConnectionOptions(mongo) {
-    // mongo = mongo || nconf.get('mongo');
     const connOptions = {
         maxPoolSize: 10,
         minPoolSize: 3,
