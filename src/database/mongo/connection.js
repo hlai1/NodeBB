@@ -10,12 +10,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.connect = exports.getConnectionOptions = void 0;
-const nconf = require("nconf");
 const winston = require("winston");
 const _ = require("lodash");
 const mongodb_1 = require("mongodb");
 function getConnectionString(mongo) {
-    mongo = mongo || nconf.get('mongo');
+    // mongo = mongo || nconf.get('mongo');
     let usernamePassword = '';
     const uri = mongo.uri || '';
     if (mongo.username && mongo.password) {
@@ -46,11 +45,7 @@ function getConnectionString(mongo) {
 }
 exports.default = getConnectionString;
 function getConnectionOptions(mongo) {
-    // The next line calls a function in a module that has not been updated to TS yet
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    const nconfVar = nconf.get('mongo');
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    mongo = mongo || nconfVar;
+    // mongo = mongo || nconf.get('mongo');
     const connOptions = {
         maxPoolSize: 10,
         minPoolSize: 3,

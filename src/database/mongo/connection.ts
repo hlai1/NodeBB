@@ -14,7 +14,7 @@ interface Mongo {
     options: MongoClientOptions;
 }
 export default function getConnectionString(mongo: Mongo): string {
-    mongo = mongo || nconf.get('mongo');
+    // mongo = mongo || nconf.get('mongo');
     let usernamePassword = '';
     const uri = mongo.uri || '';
     if (mongo.username && mongo.password) {
@@ -48,9 +48,7 @@ export default function getConnectionString(mongo: Mongo): string {
 }
 
 export function getConnectionOptions(mongo: Mongo): MongoClientOptions {
-    // The next line calls a function in a module that has not been updated to TS yet
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    mongo = mongo || nconf.get('mongo');
+    // mongo = mongo || nconf.get('mongo');
     const connOptions = {
         maxPoolSize: 10,
         minPoolSize: 3,
