@@ -14,7 +14,7 @@ interface Mongo {
     options: MongoClientOptions;
 }
 export default function getConnectionString(mongo: Mongo): string {
-    // mongo = mongo || nconf.get('mongo');
+
     let usernamePassword = '';
     const uri = mongo.uri || '';
     if (mongo.username && mongo.password) {
@@ -48,7 +48,7 @@ export default function getConnectionString(mongo: Mongo): string {
 }
 
 export function getConnectionOptions(mongo: Mongo): MongoClientOptions {
-    // mongo = mongo || nconf.get('mongo');
+
     const connOptions = {
         maxPoolSize: 10,
         minPoolSize: 3,
